@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>ch01-war</module>
+        <module>ch02-springmvc</module>
     </modules>
 
     <properties>
