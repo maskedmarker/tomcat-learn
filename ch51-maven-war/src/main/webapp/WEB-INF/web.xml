@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         metadata-complete="true">
+    <display-name>war</display-name>
+
+    <servlet>
+        <servlet-name>helloWorld</servlet-name>
+        <servlet-class>com.example.learn.tomcat.war.HelloWorld</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>helloWorld</servlet-name>
+        <url-pattern>/servlet/hello</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <error-code>400</error-code>
+        <location>/html/error.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>401</error-code>
+        <location>/html/error.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/html/error.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/html/error.html</location>
+    </error-page>
+
+    <welcome-file-list>
+        <welcome-file>/index.html</welcome-file>
+    </welcome-file-list>
+</web-app>
