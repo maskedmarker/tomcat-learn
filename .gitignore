@@ -22,4 +22,4 @@ build
 logs/
 
 #tomcat
-tomcat/
+/tomcat/
