@@ -5,15 +5,77 @@
          metadata-complete="true">
     <display-name>war</display-name>
 
+    <!--access log filter-->
+    <filter>
+        <filter-name>accessLogFilter</filter-name>
+        <filter-class>com.example.learn.tomcat.war.filter.AccessLogFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>accessLogFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--hello world-->
     <servlet>
         <servlet-name>helloWorld</servlet-name>
-        <servlet-class>com.example.learn.tomcat.war.HelloWorld</servlet-class>
+        <servlet-class>com.example.learn.tomcat.war.servlet.HelloWorldServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>helloWorld</servlet-name>
         <url-pattern>/servlet/hello</url-pattern>
     </servlet-mapping>
 
+    <!--local message-->
+    <servlet>
+        <servlet-name>localMessage</servlet-name>
+        <servlet-class>com.example.learn.tomcat.war.servlet.LocalMessageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>localMessage</servlet-name>
+        <url-pattern>/servlet/localMessage</url-pattern>
+    </servlet-mapping>
+
+    <!--path info-->
+    <servlet>
+        <servlet-name>pathInfo</servlet-name>
+        <servlet-class>com.example.learn.tomcat.war.servlet.PathInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>pathInfo</servlet-name>
+        <url-pattern>/servlet/pathInfo</url-pattern>
+    </servlet-mapping>
+
+    <!--throw exception-->
+    <servlet>
+        <servlet-name>throwEx</servlet-name>
+        <servlet-class>com.example.learn.tomcat.war.servlet.ThrowExceptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>throwEx</servlet-name>
+        <url-pattern>/servlet/throwEx</url-pattern>
+    </servlet-mapping>
+
+    <!--error code 500-->
+    <servlet>
+        <servlet-name>errorCode500</servlet-name>
+        <servlet-class>com.example.learn.tomcat.war.servlet.ErrorCode500Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>errorCode500</servlet-name>
+        <url-pattern>/servlet/500</url-pattern>
+    </servlet-mapping>
+
+    <!--parameter info-->
+    <servlet>
+        <servlet-name>parameterInfo</servlet-name>
+        <servlet-class>com.example.learn.tomcat.war.servlet.ParameterInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>parameterInfo</servlet-name>
+        <url-pattern>/servlet/parameterInfo</url-pattern>
+    </servlet-mapping>
+
+    <!-- error pages -->
     <error-page>
         <error-code>400</error-code>
         <location>/html/error.html</location>
@@ -34,7 +96,13 @@
         <location>/html/error.html</location>
     </error-page>
 
+    <!-- welcome page -->
     <welcome-file-list>
         <welcome-file>/index.html</welcome-file>
     </welcome-file-list>
+
+    <!--session timeout in minutes-->
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
 </web-app>

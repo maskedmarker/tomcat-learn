@@ -1,22 +1,20 @@
-package com.example.learn.tomcat.war;
+package com.example.learn.tomcat.war.servlet;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ResourceBundle;
 
-public class HelloWorld extends HttpServlet {
+public class LocalMessageServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        demoPath(request);
         String title = getTitle(request);
 
         response.setContentType("text/html");
@@ -43,15 +41,5 @@ public class HelloWorld extends HttpServlet {
         String title = rb.getString("helloworld.title");
 
         return title;
-    }
-
-    private void demoPath(HttpServletRequest request) {
-        File cwd = new File("");
-        System.out.println("cwd.getAbsolutePath() = " + cwd.getAbsolutePath());
-        File file = new File(cwd.getParent(), "/WEB-INF/classes/bundle");
-        System.out.println("file.getAbsolutePath() = " + file.getAbsolutePath());
-
-        String servletPathRealPath = request.getServletContext().getRealPath(request.getServletPath());
-        System.out.println("servletPathRealPath = " + servletPathRealPath);
     }
 }
