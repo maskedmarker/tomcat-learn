@@ -77,5 +77,6 @@ localhost_access_log.2024-07-27.txt
 
 
 
-### 
+### 注意点
+可以通过修改模块的dependencies,将tomcat/lib作为runtime的依赖,方便debug时stepping
 
