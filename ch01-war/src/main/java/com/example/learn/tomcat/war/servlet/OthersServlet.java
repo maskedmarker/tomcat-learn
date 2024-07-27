@@ -3,13 +3,12 @@ package com.example.learn.tomcat.war.servlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ParameterInfoServlet extends HttpServlet {
+public class OthersServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,10 +37,6 @@ public class ParameterInfoServlet extends HttpServlet {
     private Map<String, String> parameterInfo(HttpServletRequest request) {
         Map<String, String> info = new HashMap<>();
 
-        // servletPath与requestUrl是不同的,前者指的是web.xml中配置的url-pattern
-        String servletPath = request.getServletPath();
-        info.put("servletPath", servletPath);
-
         // The returned URL contains a protocol, server name, port number, and server path, but it does not include query string parameters
         StringBuffer requestURL = request.getRequestURL();
         info.put("requestURL", requestURL.toString());
@@ -50,6 +45,11 @@ public class ParameterInfoServlet extends HttpServlet {
         // The web container does not decode this String(如果包含中文,则返回的是percent-encoding字符串)
         String requestURI = request.getRequestURI();
         info.put("requestURI", requestURI);
+
+        // servletPath与requestUrl是不同的,前者指向web.xml中匹配到的servlet的url-pattern;后者与http请求的first-line有关
+        // This method will return an empty string ("") if the servlet used to process this request was matched using the "/*" pattern
+        String servletPath = request.getServletPath();
+        info.put("servletPath", servletPath);
 
         return info;
     }

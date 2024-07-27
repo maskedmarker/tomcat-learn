@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PathInfoServlet extends HttpServlet {
+public class FilePathInfoServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 

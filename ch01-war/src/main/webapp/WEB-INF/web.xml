@@ -38,11 +38,11 @@
     <!--path info-->
     <servlet>
         <servlet-name>pathInfo</servlet-name>
-        <servlet-class>com.example.learn.tomcat.war.servlet.PathInfoServlet</servlet-class>
+        <servlet-class>com.example.learn.tomcat.war.servlet.FilePathInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>pathInfo</servlet-name>
-        <url-pattern>/servlet/pathInfo</url-pattern>
+        <url-pattern>/servlet/filePathInfo</url-pattern>
     </servlet-mapping>
 
     <!--throw exception-->
@@ -65,14 +65,24 @@
         <url-pattern>/servlet/500</url-pattern>
     </servlet-mapping>
 
-    <!--parameter info-->
+    <!--uri info-->
     <servlet>
-        <servlet-name>parameterInfo</servlet-name>
-        <servlet-class>com.example.learn.tomcat.war.servlet.ParameterInfoServlet</servlet-class>
+        <servlet-name>uriInfo</servlet-name>
+        <servlet-class>com.example.learn.tomcat.war.servlet.UriInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>parameterInfo</servlet-name>
-        <url-pattern>/servlet/parameterInfo</url-pattern>
+        <servlet-name>uriInfo</servlet-name>
+        <url-pattern>/servlet/uriInfo</url-pattern>
+    </servlet-mapping>
+
+    <!--others info-->
+    <servlet>
+        <servlet-name>others</servlet-name>
+        <servlet-class>com.example.learn.tomcat.war.servlet.OthersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>others</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
     <!-- error pages -->
