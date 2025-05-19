@@ -12,6 +12,7 @@
         <module>ch01-war</module>
         <module>ch02-springmvc</module>
         <module>ch51-maven-war</module>
+        <module>tomcat-debug</module>
     </modules>
 
     <properties>
